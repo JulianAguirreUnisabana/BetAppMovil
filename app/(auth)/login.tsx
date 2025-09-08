@@ -1,3 +1,4 @@
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
   Image,
@@ -15,6 +16,11 @@ import {
 export default function Index() {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
+
+  const router = useRouter();
+
+  // <Link>
+  // router.navigate("/(auth)/register")
   return (
     <ImageBackground
       source={require("../../assets/images/fondo1.jpg")} // Cambia la ruta a tu imagen
@@ -60,7 +66,7 @@ export default function Index() {
           </View>
           <TouchableOpacity
             style={styles.forgotButton}
-            onPress={() => alert("¿Olvidaste tu contraseña?")}
+            onPress={() => router.push("/(auth)/reset")}
           >
             <Text style={styles.forgotText}>¿Olvidaste tu contraseña?</Text>
           </TouchableOpacity>
@@ -72,6 +78,12 @@ export default function Index() {
               onPress={() => alert("Iniciar sesion")}
             >
               <Text style={styleBottons.text}>iniciar sesion</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styleBottons.button}
+              onPress={() => router.push("/(auth)/register")}
+            >
+              <Text style={styleBottons.text}>O Registrarse</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -163,7 +175,8 @@ const styleBottons = StyleSheet.create({
     backgroundColor: "#0fd190",
     padding: 10,
     borderRadius: 20,
-    overflow: "hidden", // Necesario para que el borderRadius funcione en Android
+    overflow: "hidden",
+    marginBlock: 10,
   },
   text: {
     color: "black",
