@@ -75,7 +75,7 @@ export default function Index() {
           <View style={styles.container}>
             <TouchableOpacity
               style={styleBottons.button}
-              onPress={() => alert("Iniciar sesion")}
+              onPress={() => router.push("/(main)/home")}
             >
               <Text style={styleBottons.text}>iniciar sesion</Text>
             </TouchableOpacity>
