@@ -5,6 +5,7 @@ export default function RootLayout() {
       <Stack.Screen name="login" />
       <Stack.Screen name="register" />
       <Stack.Screen name="reset" />
+      <Stack.Screen name="camara" />
     </Stack>
   );
 }

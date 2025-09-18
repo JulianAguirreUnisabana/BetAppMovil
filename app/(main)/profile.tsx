@@ -13,6 +13,8 @@ import {
   View,
 } from "react-native";
 import { AuthContext } from "../../contexts/AuthContext";
+// 🚀 importar router
+import { useRouter } from "expo-router";
 
 const estadisticas = [
   { id: "1", label: "Apuestas ganadas", value: 12, icon: "trophy-outline" },
@@ -41,6 +43,9 @@ export default function Profile() {
     phone: user?.phone || "",
     gender: user?.gender || "",
   });
+
+  // 🚀 inicializar router
+  const router = useRouter();
 
   const handleSave = async () => {
     const success = await updateProfile(profile);
@@ -78,6 +83,15 @@ export default function Profile() {
         </View>
         <View style={[styles.container, { flex: 0.7 }]}>
           <Ionicons name="person-circle-outline" size={100} color="#0fd190" />
+
+          {/* 🚀 Botón para abrir cámara */}
+          <TouchableOpacity
+            style={styleBottons.button}
+            onPress={() => router.push("/(auth)/camara")} // Navegar a la pantalla de cámara
+          >
+            <Text style={styleBottons.text}>Abrir cámara</Text>
+          </TouchableOpacity>
+
           {isEditing ? (
             <>
               <TextInput

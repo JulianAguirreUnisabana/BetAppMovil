@@ -38,6 +38,20 @@
             "backgroundColor": "#000000"
           }
         }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "La app necesita acceder a tu cámara para tomar fotos",
+          "microphonePermission": "La app necesita acceso al micrófono para grabar videos con audio"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "La app necesita acceder a tus fotos para seleccionar una imagen de perfil",
+          "cameraPermission": "La app necesita acceder a tu cámara para tomar una foto de perfil"
+        }
       ]
     ],
     "experiments": {
